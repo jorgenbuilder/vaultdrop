@@ -1,0 +1,6 @@
+node_modules/
+.dfx/
+deps/
+frontend/dist/
+frontend/.env.local
+.mops/

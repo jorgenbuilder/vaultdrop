@@ -1,0 +1,36 @@
+{
+  "canisters": {
+    "backend": {
+      "type": "motoko",
+      "main": "src/backend/main.mo"
+    },
+    "frontend": {
+      "type": "assets",
+      "source": ["frontend/dist"],
+      "dependencies": ["backend"]
+    },
+    "internet_identity": {
+      "type": "custom",
+      "candid": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity.did",
+      "wasm": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity_dev.wasm.gz",
+      "shrink": false,
+      "specified_id": "rdmx6-jaaaa-aaaaa-aaadq-cai",
+      "remote": { "id": { "ic": "rdmx6-jaaaa-aaaaa-aaadq-cai" } }
+    },
+    "internet_identity_frontend": {
+      "type": "custom",
+      "candid": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity.did",
+      "wasm": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity_frontend.wasm.gz",
+      "shrink": false,
+      "specified_id": "uqzsh-gqaaa-aaaaq-qaada-cai",
+      "init_arg": "(record { backend_canister_id = principal \"rdmx6-jaaaa-aaaaa-aaadq-cai\"; backend_origin = \"http://rdmx6-jaaaa-aaaaa-aaadq-cai.localhost:4943\"; fetch_root_key = opt true; dev_csp = opt true })",
+      "remote": { "id": { "ic": "uqzsh-gqaaa-aaaaq-qaada-cai" } }
+    }
+  },
+  "defaults": {
+    "build": {
+      "packtool": "mops sources"
+    }
+  },
+  "output_env_file": "frontend/.env"
+}

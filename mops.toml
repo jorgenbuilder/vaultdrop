@@ -1,0 +1,6 @@
+[package]
+name = "vaultdrop"
+version = "0.1.0"
+
+[dependencies]
+base = "0.14.2"
